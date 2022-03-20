@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const ToDosList = ({toDos, setTaskSelected}) => {
+export const ToDosList = ({toDos, setTaskSelected, deleteTask}) => {
+
+
   return (
     <table>
         <thead>
@@ -19,7 +21,7 @@ export const ToDosList = ({toDos, setTaskSelected}) => {
                     <td>{toDo.isCompleted? 'Completed' : 'Pending'}</td>
                     <td>
                         <button onClick={() => setTaskSelected(toDo)}>Edit</button>
-                        <button>Delete</button>
+                        <button onClick={() => deleteTask(toDo.id)}>Delete</button>
                     </td>
                 </tr>
             </tbody>

@@ -15,12 +15,18 @@ function App() {
     .then(res => setToDos(res.data))
   }, [])
   
+  function deleteTask(id) {
+    axios.delete(`https://todo-app-academlo.herokuapp.com/todos/${id}/`)
+      .then(() => axios.get('https://todo-app-academlo.herokuapp.com/todos/'))
+      .then(res => setToDos(res.data))
+
+  }
   
 
   return (
     <div className="App">
-      <ToDoForm setToDos={setToDos} taskSelected={taskSelected}/>
-      <ToDosList toDos={toDos} setTaskSelected={setTaskSelected}/>
+      <ToDoForm setToDos={setToDos} taskSelected={taskSelected} setTaskSelected={setTaskSelected}/>
+      <ToDosList toDos={toDos} setTaskSelected={setTaskSelected} deleteTask={deleteTask}/>
     </div>
   );
 }

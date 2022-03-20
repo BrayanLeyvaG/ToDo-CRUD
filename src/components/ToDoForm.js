@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-export const ToDoForm = ({setToDos, taskSelected}) => {
+export const ToDoForm = ({setToDos, taskSelected, setTaskSelected}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    const defaultValues= {title: "", description: "", isCompleted: false}
     /* console.log(errors); */
 
     function cleanReload(e) {
@@ -17,10 +19,13 @@ export const ToDoForm = ({setToDos, taskSelected}) => {
         if(taskSelected){
             axios.put(`https://todo-app-academlo.herokuapp.com/todos/${taskSelected.id}/`, data)
                 .then(() => cleanReload(e))
+                .then(() => setTaskSelected(null))
+                .then(() => reset(defaultValues))
 
         }else{
             axios.post('https://todo-app-academlo.herokuapp.com/todos/',data)
                 .then(() => cleanReload(e))
+                .then(() => reset(defaultValues))
         }
     }
 
