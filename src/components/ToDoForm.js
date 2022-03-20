@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import './ToDoForm.css'
 
-export const ToDoForm = ({setToDos, taskSelected, setTaskSelected}) => {
+export const ToDoForm = ({setToDos, taskSelected, setTaskSelected, setIsModalOpen}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const defaultValues= {title: "", description: "", isCompleted: false}
@@ -42,20 +43,27 @@ export const ToDoForm = ({setToDos, taskSelected, setTaskSelected}) => {
     
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-            <label htmlFor='title'>Title</label>    
-            <input type="text" placeholder="title" {...register("title", {required: true, maxLength: 20})} />
+        <div className='modal-bg'>
+            <div className='modal-container'>
+                <button className='btn-close' onClick={() => setIsModalOpen(false)}> X </button>
+                <h2>New task</h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label htmlFor='title'>Title</label>    
+                        <input type="text" placeholder="title" {...register("title", {required: true, maxLength: 20})} />
+                    </div>
+                    <div>
+                        <label htmlFor='description'>Description</label>
+                        <input type="text" placeholder="description" {...register("description", {required: true})} />
+                    </div>
+                    <div>
+                        <label>Completed:</label>
+                        <input type="checkbox" placeholder="isCompleted" {...register("isCompleted", {})} />
+                    </div>
+                    <input type="submit" value="Add"/>
+                    <button>Cancel</button>
+                </form>
+            </div>
         </div>
-        <div>
-            <label htmlFor='description'>Description</label>
-            <input type="text" placeholder="description" {...register("description", {required: true})} />
-        </div>
-        <div>
-            <label>Completed:</label>
-            <input type="checkbox" placeholder="isCompleted" {...register("isCompleted", {})} />
-        </div>
-        <input type="submit" />
-      </form>
     );
   }

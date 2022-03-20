@@ -7,6 +7,7 @@ import { ToDoForm } from './components/ToDoForm';
 function App() {
   const [toDos, setToDos] = useState([])
   const [taskSelected, setTaskSelected] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   console.log(taskSelected)
     
@@ -25,7 +26,8 @@ function App() {
 
   return (
     <div className="App">
-      <ToDoForm setToDos={setToDos} taskSelected={taskSelected} setTaskSelected={setTaskSelected}/>
+      <button onClick={() => setIsModalOpen(true)}>New task</button>
+      {isModalOpen && <ToDoForm setToDos={setToDos} taskSelected={taskSelected} setTaskSelected={setTaskSelected} setIsModalOpen={setIsModalOpen}/>}
       <ToDosList toDos={toDos} setTaskSelected={setTaskSelected} deleteTask={deleteTask}/>
     </div>
   );
