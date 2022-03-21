@@ -78,7 +78,7 @@
 @media (max-width: 850px) {
 
     .td-text{
-        min-width: 100px;
+        min-width: 50px;
     }
     .buttons-list{
         width: auto;

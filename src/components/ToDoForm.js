@@ -60,7 +60,7 @@ export const ToDoForm = ({setToDos, taskSelected, setTaskSelected, setIsModalOpe
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <label htmlFor='title'>Title</label>    
-                    <input className='input-text' type="text"  {...register("title", {required: true, maxLength: 20})} />
+                    <input className='input-text' type="text"  {...register("title", {required: true})} />
 
 
                     <label htmlFor='description'>Description</label>
