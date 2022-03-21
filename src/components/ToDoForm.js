@@ -71,8 +71,8 @@ export const ToDoForm = ({setToDos, taskSelected, setTaskSelected, setIsModalOpe
                         <input className='checkbox' type="checkbox" {...register("isCompleted", {})} />
                     </div>
                     <div className="buttons-form">
-                        <input className='btn-add btn' type="submit" value="Add"/>
                         <button className='btn-cancel btn' type='button' onClick={cancelBtn}>Cancel</button>
+                        <input className='btn-add btn' type="submit" value="Add"/>
                     </div>
                 </form>
             </div>
