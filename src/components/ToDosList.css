@@ -1,10 +1,19 @@
-.status{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+.list-container{
+    padding: 40px 20px 10px 20px;
+}
+
+.container-todo{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 20px;
+
+}
+
+
+.td-status{
     cursor: pointer;
 }
+
+
 
 
 .check{
@@ -20,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 0 0 30px;
 }
 
 .circle i{
@@ -27,9 +37,16 @@
     color: green;
 }
 
+.td-text{
+    min-width: 500px;
+
+}
+
 .task-text{
     font-size: 1.2em;
+    margin: 20px 20px;
 }
+
 
 .buttons-list{
     display: flex;
@@ -43,4 +60,27 @@
     font-size: 1.1em;
     border-radius: 10px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
+
+.btn-edit{
+    color: orange;
+}
+.btn-delete{
+    color: red;
+}
+
+.btn-list:hover{
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+@media (max-width: 850px) {
+
+    .td-text{
+        min-width: 100px;
+    }
+    .buttons-list{
+        width: auto;
+    }
+ }

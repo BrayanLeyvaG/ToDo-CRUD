@@ -97,3 +97,20 @@ label{
     background-color: darkgray;
     color: white;
 }
+
+@media (max-width: 850px){
+    .modal-bg{
+        padding: 0;
+    }
+
+    .modal-container{
+        width: auto;
+        padding: 20px;
+    }
+
+    .btn{
+        padding: 10px 19px;
+    }
+
+    
+}
