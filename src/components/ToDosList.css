@@ -1,0 +1,46 @@
+.status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.check{
+    color: #555A88;
+    
+}
+
+.circle{
+    height: 40px;
+    width: 40px;
+    border: 2px solid #555A88;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle i{
+    font-size: 25px;
+    color: green;
+}
+
+.task-text{
+    font-size: 1.2em;
+}
+
+.buttons-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+}
+
+.btn-list{
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
