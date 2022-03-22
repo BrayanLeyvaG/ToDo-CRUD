@@ -8,11 +8,17 @@ function App() {
   const [toDos, setToDos] = useState([])
   const [taskSelected, setTaskSelected] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
     
   useEffect(() => {
     axios.get('https://todo-app-academlo.herokuapp.com/todos/')
-    .then(res => setToDos(res.data))
+    .then(res =>{ 
+      if (res) {
+        setToDos(res.data)
+        setIsLoading(false)
+      }
+    })
   }, [])
   
   function deleteTask(id) {
@@ -30,7 +36,7 @@ function App() {
         <button className='btn btn-new' onClick={() => setIsModalOpen(true)}><i className="fas fa-plus"></i> New task</button>
       </div>
       {isModalOpen && <ToDoForm setToDos={setToDos} taskSelected={taskSelected} setTaskSelected={setTaskSelected} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>}
-      {toDos === [] ? <div class="loader"></div> : < ToDosList toDos={toDos} setTaskSelected={setTaskSelected} deleteTask={deleteTask} setToDos={setToDos} setIsModalOpen={setIsModalOpen}/>}
+      {isLoading ? <div className="loader"></div> : < ToDosList toDos={toDos} setTaskSelected={setTaskSelected} deleteTask={deleteTask} setToDos={setToDos} setIsModalOpen={setIsModalOpen}/>}
     </div>
   );
 }
